@@ -69,22 +69,20 @@ function playRound(humanPick, computerPick) {
     }
 }
 
-// get choices 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 // play game 
 function playGame() {
-    do (playRound(humanSelection, computerSelection)) 
-    while (humanScore || computerScore < 5) {
-        if (humanScore === 5) {
-        alert("Congratulations! You won! The score was 5 to ", computerScore, ".");
-        } else if (computerScore === 5) {
-        alert("Sorry, you lose this game. The score was 5 to ", humanScore, ".")
-        alert("Refresh to try again?");
-        } else {
-        console.log("Error");
-        }
+    while (humanScore < 5 && computerScore < 5) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    }
+    if (humanScore === 5) {
+    alert("Congratulations! You won! The score was 5 to " + computerScore + ".");
+    } else if (computerScore === 5) {
+    alert("Sorry, you lose this game. The score was 5 to " + humanScore + ".")
+    alert("Refresh to try again?");
+    } else {
+    console.log("Error");
     }
 }
 
